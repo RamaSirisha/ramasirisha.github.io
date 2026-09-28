@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rama Sirisha · HR + Applied AI</title>
+<meta name="description" content="Rama Sirisha Adharapurapu, HR Executive and ISO Coordinator building AI tools for HR teams, including HireProof, a privacy-first resume credibility checker.">
+<!-- Small "ARS" icon shown in the browser tab -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%23A8402E'/><text x='50%25' y='54%25' text-anchor='middle' dominant-baseline='middle' font-family='Georgia,serif' font-size='23' letter-spacing='-0.5' fill='%23FAF8F3'>ARS</text></svg>">
+<!-- Link preview when shared on LinkedIn, WhatsApp etc. The image works once photo.png is uploaded next to this file. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rama Sirisha Adharapurapu · HR + Applied AI">
+<meta property="og:description" content="HR Executive and ISO Coordinator building privacy-first AI tools for HR. Try HireProof, a resume screener that verifies the work, never the person.">
+<meta property="og:url" content="https://ramasirisha.github.io/">
+<meta property="og:image" content="https://ramasirisha.github.io/photo.png">
+<meta name="twitter:card" content="summary_large_image">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14181F;
+    --ink-soft:#2B303A;
+    --paper:#EFEAE0;
+    --paper-dim:#E4DDCB;
+    --paper-line:rgba(20,24,31,0.14);
+    --gold:#B8902E;
+    --rust:#A8402E;
+    --rust-deep:#8C3325;
+    --redact:#1B1E24;
+    --sage:#55684F;
+    --white:#FAF8F3;
+    --shadow: 0 12px 32px rgba(20,24,31,0.16);
+    --radius: 3px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  [hidden]{display:none !important;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
+
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  section{position:relative;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 40px;}
+  @media(max-width:720px){.wrap{padding:0 22px;}}
+
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;letter-spacing:-0.01em;color:var(--ink);}
+  .serif-italic{font-style:italic;font-weight:500;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--rust);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:7px;height:7px;
+    background:var(--rust);
+    border-radius:50%;
+    display:inline-block;
+    flex-shrink:0;
+  }
+
+  /* ---------- FOCUS STATE ---------- */
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+    outline:2px solid var(--rust);
+    outline-offset:3px;
+  }
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky;top:0;z-index:100;
+    background:rgba(239,234,224,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--paper-line);
+  }
+  .nav-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 40px;max-width:1180px;margin:0 auto;
+  }
+  .nav-name{font-family:'Fraunces',serif;font-weight:600;font-size:18px;}
+  .nav-name span{color:var(--rust);}
+  .nav-links{display:flex;align-items:center;gap:30px;}
+  .nav-links a{
+    font-size:13.5px;color:var(--ink-soft);
+    font-weight:500;
+  }
+  .nav-links a:hover{color:var(--rust);}
+  /* Phones: menu on two rows — name on top, then Work · Projects · Let's Connect.
+     To go back to one row (name + Let's Connect only), replace this rule with:
+     @media(max-width:720px){.nav-links a.hide-mobile{display:none;} .nav-inner{padding:16px 22px;}} */
+  @media(max-width:720px){
+    .nav-inner{flex-direction:column;align-items:stretch;gap:8px;padding:10px 22px;}
+    .nav-links{gap:22px;}
+    .nav-links a:not(.btn-primary){padding:6px 0;font-size:14px;}
+    .nav-links a.btn-primary{margin-left:auto;}
+  }
+
+  .btn-primary{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;font-weight:600;letter-spacing:0.03em;
+    background:var(--rust);color:var(--white);
+    padding:11px 22px;border-radius:var(--radius);
+    display:inline-flex;align-items:center;gap:8px;
+    border:1px solid var(--rust);
+    transition:background .2s ease, transform .15s ease;
+    cursor:pointer;
+  }
+  .btn-primary:hover{background:var(--rust-deep);transform:translateY(-1px);}
+  .nav-links a.btn-primary{color:var(--white);}
+  .btn-ghost{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;font-weight:500;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--paper-line);
+    padding-bottom:2px;
+  }
+  .btn-ghost:hover{color:var(--rust);border-color:var(--rust);}
+
+  /* ---------- STICKY FLOATING CTA (mobile) ---------- */
+  .float-cta{
+    position:fixed;bottom:20px;right:20px;z-index:150;
+    display:none;
+  }
+  @media(max-width:720px){.float-cta{display:inline-flex;}}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:88px 0 70px;}
+  .hero-grid{
+    display:grid;grid-template-columns:1.15fr 0.85fr;gap:64px;align-items:center;
+  }
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:44px;}}
+  .hero h1{
+    font-size:clamp(40px,5.4vw,68px);
+    line-height:1.04;
+    margin:22px 0 26px;
+  }
+  .hero-sub{
+    font-size:18px;color:var(--ink-soft);max-width:480px;margin-bottom:34px;
+    line-height:1.65;
+  }
+  .hero-cta-row{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-bottom:40px;}
+  .hero-meta{
+    display:flex;gap:28px;flex-wrap:wrap;
+    padding-top:26px;border-top:1px solid var(--paper-line);
+  }
+  .hero-meta-item{font-size:13px;color:var(--ink-soft);}
+  .hero-meta-item b{display:block;font-family:'Fraunces',serif;font-size:20px;color:var(--ink);font-weight:600;}
+
+  .hero-photo-frame{
+    position:relative;
+    background:var(--ink);
+    border-radius:var(--radius);
+    aspect-ratio:1/1;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    width:100%;max-width:380px;justify-self:end;
+  }
+  .hero-photo-frame .hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;}
+  .hero-photo-frame .photo-fallback{
+    position:absolute;inset:0;
+    display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;
+    color:rgba(250,248,243,0.55);
+    background:
+      radial-gradient(circle at 30% 20%, rgba(184,144,46,0.18), transparent 55%),
+      linear-gradient(160deg, #1B2029, #0F1218);
+  }
+  .photo-fallback svg{width:64px;height:64px;opacity:0.5;}
+  .photo-fallback span{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;}
+  .file-tab{
+    position:absolute;top:0;left:24px;z-index:2;
+    background:var(--rust);color:var(--white);
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;
+    padding:8px 14px 6px;border-radius:0 0 3px 3px;
+    text-transform:uppercase;
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  .section{padding:96px 0;}
+  .section-dark{background:var(--ink);color:var(--white);}
+  .section-dark .eyebrow{color:var(--gold);}
+  .section-dark .eyebrow::before{background:var(--gold);}
+  .section-dark h2, .section-dark h3{color:var(--white);}
+  .section-header{max-width:640px;margin-bottom:56px;}
+  .section-header h2{font-size:clamp(30px,4vw,44px);line-height:1.08;margin-top:16px;}
+  .section-header p{margin-top:18px;font-size:16.5px;color:var(--ink-soft);max-width:520px;}
+  .section-dark .section-header p{color:rgba(250,248,243,0.7);}
+
+  /* ---------- POSITIONING ---------- */
+  .thesis-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:8px;}
+  @media(max-width:800px){.thesis-grid{grid-template-columns:1fr;}}
+  .thesis-card{
+    border:1px solid rgba(250,248,243,0.14);
+    padding:30px 28px;border-radius:var(--radius);
+    background:rgba(250,248,243,0.03);
+  }
+  .thesis-card .tag{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;
+    text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:block;
+  }
+  .thesis-card p{color:rgba(250,248,243,0.75);font-size:15.5px;line-height:1.65;}
+  .thesis-bridge{
+    margin-top:40px;padding-top:36px;border-top:1px solid rgba(250,248,243,0.14);
+    font-family:'Fraunces',serif;font-style:italic;font-size:22px;font-weight:500;
+    color:var(--white);max-width:700px;
+  }
+
+  /* ---------- PROOF / EXPERIENCE ---------- */
+  .proof-role{
+    display:grid;grid-template-columns:200px 1fr;gap:40px;
+    padding:36px 0;border-top:1px solid var(--paper-line);
+  }
+  .proof-role:last-child{border-bottom:1px solid var(--paper-line);}
+  @media(max-width:760px){.proof-role{grid-template-columns:1fr;gap:14px;}}
+  .proof-date{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--ink-soft);}
+  .proof-role h3{font-size:24px;margin-bottom:4px;}
+  .proof-org{font-size:14px;color:var(--rust);font-weight:600;margin-bottom:16px;}
+  .proof-list{display:grid;gap:12px;}
+  .proof-item{
+    display:grid;grid-template-columns:22px 1fr;gap:10px;font-size:15px;color:var(--ink-soft);
+  }
+  .proof-item::before{
+    content:"";width:6px;height:6px;background:var(--sage);border-radius:50%;margin-top:8px;
+  }
+  .proof-item b{color:var(--ink);font-weight:600;}
+
+  /* ---------- FLAGSHIP PROJECTS ---------- */
+  .proj{
+    display:grid;grid-template-columns:0.92fr 1.08fr;gap:56px;align-items:center;
+    padding:64px 0;border-top:1px solid rgba(250,248,243,0.14);
+  }
+  .proj:first-of-type{border-top:none;}
+  @media(max-width:900px){.proj{grid-template-columns:1fr;gap:32px;}}
+  .proj-visual{
+    background:rgba(250,248,243,0.04);
+    border:1px solid rgba(250,248,243,0.14);
+    border-radius:var(--radius);
+    padding:26px;
+  }
+  .proj-badge-row{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;}
+  .badge{
+    font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.06em;text-transform:uppercase;
+    border:1px solid var(--gold);color:var(--gold);padding:4px 9px;border-radius:20px;
+  }
+  .proj h3{font-size:28px;color:var(--white);margin-bottom:6px;}
+  .proj .proj-sub{font-family:'Fraunces',serif;font-style:italic;color:var(--gold);font-size:16px;margin-bottom:16px;}
+  .proj p.proj-desc{color:rgba(250,248,243,0.72);font-size:15.5px;margin-bottom:18px;}
+  .proj .built-with{font-family:'IBM Plex Mono',monospace;font-size:12px;color:rgba(250,248,243,0.5);margin-bottom:18px;}
+  .proj .built-with b{color:var(--gold);font-weight:500;}
+  .proj-outcome{
+    display:flex;align-items:center;gap:10px;
+    font-size:14px;color:var(--white);font-weight:500;
+    background:rgba(184,144,46,0.1);border-left:2px solid var(--gold);
+    padding:12px 14px;
+  }
+  .proj-points{list-style:none;display:grid;gap:9px;margin:0 0 18px;}
+  .proj-points li{display:grid;grid-template-columns:16px 1fr;gap:8px;font-size:14.5px;color:rgba(250,248,243,0.8);line-height:1.5;}
+  .proj-points li::before{content:"✦";color:var(--gold);font-size:10px;margin-top:5px;}
+  .proj-points li b{color:var(--white);font-weight:600;}
+  .proj-label{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin:4px 0 8px;}
+  .proj-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;}
+  .proj-link{
+    font-family:'IBM Plex Mono',monospace;font-size:12.5px;font-weight:600;letter-spacing:0.03em;
+    background:var(--gold);color:var(--ink);border:1px solid var(--gold);
+    padding:10px 18px;border-radius:2px;display:inline-flex;align-items:center;gap:6px;
+    transition:background .2s,color .2s;
+  }
+  .proj-link:hover{background:transparent;color:var(--gold);}
+  .proj-link.ghost{background:transparent;color:var(--gold);}
+  .proj-link.ghost:hover{background:var(--gold);color:var(--ink);}
+  .demo-note{font-size:13px;color:rgba(250,248,243,0.62);margin-top:14px;line-height:1.55;}
+  .demo-note a{color:var(--gold);border-bottom:1px solid rgba(184,144,46,0.5);}
+  .demo-note a:hover{color:var(--white);border-color:var(--white);}
+  .building{
+    margin-top:8px;padding:20px 22px;border:1px dashed rgba(250,248,243,0.24);border-radius:var(--radius);
+    font-size:15px;color:rgba(250,248,243,0.78);line-height:1.6;
+  }
+  .building .tagline{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
+  .building b{color:var(--white);font-weight:600;}
+
+  /* ---------- HIREPROOF WALKTHROUGH ---------- */
+  .hp-demo{padding:22px;}
+  .hp-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:10px;}
+  .hp-brand{font-family:'Fraunces',serif;font-size:19px;color:var(--gold);font-weight:500;}
+  .hp-sample{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(250,248,243,0.45);}
+  .hp-tabs{display:flex;gap:6px;margin-bottom:14px;}
+  .hp-tabs button{
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.04em;
+    padding:7px 13px;border:1px solid rgba(250,248,243,0.22);background:transparent;
+    color:rgba(250,248,243,0.72);border-radius:2px;cursor:pointer;transition:background .2s,color .2s,border-color .2s;
+  }
+  .hp-tabs button:hover{border-color:var(--gold);color:var(--white);}
+  .hp-tabs button.on{background:var(--gold);border-color:var(--gold);color:var(--ink);font-weight:600;}
+  .hp-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:12px;}
+  .hp-steps span{
+    font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;
+    padding:7px 2px 0;border-top:2px solid rgba(250,248,243,0.12);color:rgba(250,248,243,0.38);
+    transition:border-color .3s,color .3s;
+  }
+  .hp-steps span.on{border-color:var(--gold);color:var(--gold);}
+  .hp-doc{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.75;color:rgba(250,248,243,0.86);
+    background:rgba(0,0,0,0.2);border:1px solid rgba(250,248,243,0.08);border-radius:2px;padding:12px 14px;
+  }
+  .hp-doc .xl{display:block;font-size:10px;color:rgba(250,248,243,0.35);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;}
+  .hp-doc .ln{display:block;}
+  .pii{padding:0 2px;border-radius:1px;transition:background .25s,color .25s;}
+  .pii.sweep{background:var(--redact);color:transparent;box-shadow:0 0 0 1px rgba(250,248,243,0.12);}
+  .pii.redacted{background:rgba(184,144,46,0.22);color:var(--gold);font-weight:600;font-size:11px;letter-spacing:0.04em;}
+  .hp-finds{display:grid;gap:7px;margin-top:14px;min-height:92px;}
+  .hp-f{display:grid;grid-template-columns:18px 1fr;gap:6px;font-size:13.5px;color:rgba(250,248,243,0.88);line-height:1.45;opacity:0;transform:translateY(6px);animation:hpIn .45s ease forwards;}
+  .hp-f i{font-style:normal;font-weight:700;}
+  .hp-f.ok i{color:var(--gold);}
+  .hp-f.bad i{color:#D9694F;}
+  .hp-verdict{margin-top:14px;min-height:78px;}
+  .hp-v{padding:12px 14px;border-left:3px solid;opacity:0;transform:translateY(6px);animation:hpIn .5s ease forwards;}
+  .hp-v.good{border-color:var(--gold);background:rgba(184,144,46,0.13);}
+  .hp-v.bad{border-color:#D9694F;background:rgba(168,64,46,0.2);}
+  .hp-v b{display:block;font-family:'Fraunces',serif;font-size:18px;font-weight:600;color:var(--white);margin-bottom:3px;}
+  .hp-v small{display:block;font-size:12.5px;color:rgba(250,248,243,0.72);line-height:1.5;}
+  .hp-run{
+    margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:0.04em;
+    background:transparent;color:var(--gold);border:1px solid var(--gold);padding:9px 16px;border-radius:2px;cursor:pointer;
+    transition:background .2s,color .2s;
+  }
+  .hp-run:hover{background:var(--gold);color:var(--ink);}
+  .hp-run:disabled{opacity:0.4;cursor:default;background:transparent;color:var(--gold);}
+  @keyframes hpIn{to{opacity:1;transform:none;}}
+
+  /* ---------- TRUST BAR ---------- */
+  .trust-bar{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    border-top:1px solid var(--paper-line);border-bottom:1px solid var(--paper-line);
+  }
+  @media(max-width:760px){.trust-bar{grid-template-columns:repeat(2,1fr);}}
+  .trust-item{
+    padding:30px 26px;border-right:1px solid var(--paper-line);
+  }
+  .trust-item:last-child{border-right:none;}
+  @media(max-width:760px){.trust-item:nth-child(2n){border-right:none;} .trust-item{border-bottom:1px solid var(--paper-line);}}
+  .trust-item .k{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--sage);display:flex;gap:6px;align-items:center;margin-bottom:8px;}
+  .trust-item .k::before{content:"✓";font-weight:700;}
+  .trust-item .v{font-size:14.5px;color:var(--ink-soft);line-height:1.5;}
+
+  /* ---------- CONTACT ---------- */
+  .contact-shell{
+    background:var(--rust);color:var(--white);
+    border-radius:6px;
+    padding:64px;
+    position:relative;
+    overflow:hidden;
+  }
+  @media(max-width:720px){.contact-shell{padding:36px 24px;}}
+  .contact-shell::before{
+    content:"";position:absolute;top:-60px;right:-60px;width:280px;height:280px;
+    border:1px solid rgba(250,248,243,0.15);border-radius:50%;
+  }
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;position:relative;z-index:1;}
+  @media(max-width:860px){.contact-grid{grid-template-columns:1fr;gap:38px;}}
+  .contact-shell h2{color:var(--white);font-size:clamp(30px,4vw,46px);line-height:1.06;margin-bottom:20px;}
+  .contact-shell .eyebrow{color:rgba(250,248,243,0.7);}
+  .contact-shell .eyebrow::before{background:rgba(250,248,243,0.7);}
+  .contact-shell p.lead{color:rgba(250,248,243,0.85);font-size:16px;max-width:420px;margin-bottom:26px;}
+  .contact-secondary{display:flex;gap:22px;flex-wrap:wrap;}
+  .contact-secondary a{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;
+    border-bottom:1px solid rgba(250,248,243,0.4);padding-bottom:3px;
+    color:rgba(250,248,243,0.9);
+  }
+  .contact-secondary a:hover{border-color:var(--white);}
+
+  .form-card{
+    background:var(--paper);color:var(--ink);
+    border-radius:4px;padding:32px;
+  }
+  .form-card label{
+    display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;
+    letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px;margin-top:18px;
+  }
+  .form-card label:first-child{margin-top:0;}
+  .form-card input, .form-card textarea{
+    width:100%;border:1px solid var(--paper-line);background:var(--white);
+    padding:12px 13px;font-family:'Inter',sans-serif;font-size:14.5px;border-radius:2px;
+    color:var(--ink);
+  }
+  .form-card textarea{resize:vertical;min-height:90px;}
+  .form-submit{
+    width:100%;margin-top:24px;
+    background:var(--ink);color:var(--white);
+    font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:13.5px;letter-spacing:0.03em;
+    padding:14px;border-radius:2px;border:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    transition:background .2s ease;
+  }
+  .form-submit:hover{background:var(--rust-deep);}
+  .form-submit:disabled{opacity:0.6;cursor:default;}
+  .form-status{margin-top:14px;font-size:13.5px;line-height:1.5;min-height:1em;}
+  .form-status.ok{color:var(--sage);font-weight:600;}
+  .form-status.err{color:var(--rust-deep);font-weight:600;}
+  .hp-field{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:36px 0;}
+  .footer-inner{
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);
+  }
+
+  /* ---------- PHONE FIXES ---------- */
+  .hero-grid>*,.thesis-grid>*,.proj>*,.contact-grid>*,.proof-role>*{min-width:0;}
+  .hp-doc,.proj-desc,.proj-points,.proof-item,.contact-secondary a{overflow-wrap:anywhere;}
+  .float-cta{transition:opacity .25s ease, transform .25s ease;}
+  .float-cta.away{opacity:0;transform:translateY(12px);pointer-events:none;}
+  @media(max-width:900px){
+    .hero-photo-frame{max-width:320px;width:100%;margin:0 auto;justify-self:center;}
+  }
+  @media(max-width:720px){
+    html{overflow-x:clip;}
+    body{font-size:15.5px;}
+    .nav-name{font-size:16px;}
+    .nav-links a.btn-primary{padding:9px 14px;font-size:12px;}
+    .hero{padding:44px 0 44px;}
+    .hero h1{margin:10px 0 18px;}
+    .hero-sub{font-size:16px;margin-bottom:26px;}
+    .hero-cta-row{gap:18px;margin-bottom:30px;}
+    .hero-meta{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px;}
+    .hero-meta-item b{font-size:18px;}
+    .hero-photo-frame{max-width:260px;aspect-ratio:1/1;}
+    .section{padding:64px 0;}
+    .section-header{margin-bottom:36px;}
+    .section-header p{font-size:15.5px;}
+    .thesis-card{padding:24px 20px;}
+    .thesis-bridge{font-size:19px;margin-top:30px;padding-top:26px;}
+    .proof-role{padding:26px 0;}
+    .proof-role h3{font-size:21px;}
+    .proof-item{grid-template-columns:16px 1fr;font-size:14.5px;}
+    .proj{padding:40px 0;}
+    .proj h3{font-size:25px;}
+    .proj p.proj-desc{font-size:15px;}
+    .proj-points li{font-size:14px;}
+    .building{padding:18px 18px;font-size:14.5px;}
+    .hp-demo{padding:16px;}
+    .hp-top{flex-wrap:wrap;gap:4px 10px;}
+    .hp-tabs button{flex:1;padding:9px 8px;}
+    .hp-steps span{font-size:9px;letter-spacing:0.04em;}
+    .hp-doc{font-size:11.5px;padding:10px 12px;}
+    .hp-f{font-size:13px;}
+    .hp-run{width:100%;padding:11px;}
+    .proj-links .proj-link{flex:1 1 100%;justify-content:center;padding:12px 18px;}
+    .trust-item{padding:22px 16px;}
+    .contact-shell{padding:32px 20px;}
+    .contact-shell h2{font-size:30px;}
+    .contact-secondary{flex-direction:column;gap:14px;}
+    .form-card{padding:24px 18px;}
+    .form-card input,.form-card textarea{font-size:16px;}
+    .float-cta{bottom:14px;right:14px;}
+    footer{padding-bottom:84px;}
+    .footer-inner{flex-direction:column;align-items:flex-start;}
+  }
+  @media(max-width:420px){
+    .hero h1{font-size:36px;}
+    .trust-bar{grid-template-columns:1fr;}
+    .trust-item{border-right:none !important;}
+    .hp-steps span{font-size:8.5px;}
+  }
+
+  /* ---------- REVEAL ON SCROLL (content stays visible if JS is off) ---------- */
+  .js .reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease, transform .7s ease;}
+  .js .reveal.in{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div class="nav">
+  <div class="nav-inner">
+    <div class="nav-name">Rama Sirisha <span>·</span> HR + AI</div>
+    <div class="nav-links">
+      <a href="#work" class="hide-mobile">Work</a>
+      <a href="#projects" class="hide-mobile">Projects</a>
+      <a href="#contact" class="btn-primary">Let's Connect →</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Reads people.<br>Builds <span class="serif-italic">systems.</span></h1>
+      <p class="hero-sub">I'm Rama Sirisha Adharapurapu, a computer science graduate who chose HR. Since December 2024 I've run HR operations and ISO coordination, and built AI tools for problems HR teams actually face. The first is HireProof, a resume screener that checks whether experience is real without exposing who the candidate is.</p>
+      <div class="hero-cta-row">
+        <a href="#projects" class="btn-primary">See my work →</a>
+        <a data-link="resume" class="btn-ghost" download>View resume</a>
+      </div>
+      <div class="hero-meta">
+        <div class="hero-meta-item"><b>Since Dec 2024</b>HR operations &amp; ISO</div>
+        <div class="hero-meta-item"><b>1 live</b>AI tool · public demo</div>
+        <div class="hero-meta-item"><b>CS + HR</b>B.Sc. CS · MBA HR</div>
+        <div class="hero-meta-item"><b>Hyderabad</b>Open to remote</div>
+      </div>
+    </div>
+    <div class="hero-photo-frame">
+      <div class="file-tab">Personnel File</div>
+      <!-- PHOTO: save your photo as photo.png in the same folder as this file. -->
+      <img class="hero-photo" src="photo.png" alt="Rama Sirisha Adharapurapu" style="object-position:50% 30%" onerror="this.hidden=true">
+      <div class="photo-fallback" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POSITIONING (dark) -->
+<section class="section section-dark">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <div class="eyebrow">The gap</div>
+      <h2>Most AI people don't know HR.<br>Most HR people don't know AI.</h2>
+      <p>HR is fundamentally about people, process and documentation: the same things that make AI tools useful or useless inside a company. I studied computer science before choosing HR, so I know where the friction actually lives and how to point AI at it.</p>
+    </div>
+    <div class="thesis-grid">
+      <div class="thesis-card reveal">
+        <span class="tag">What I bring from HR</span>
+        <p>Full-cycle recruitment, employee relations, and ISO 9001 &amp; ISO 27001 documentation. The operational reality of what breaks, what's manual, and what a hiring team is quietly tolerating.</p>
+      </div>
+      <div class="thesis-card reveal">
+        <span class="tag">What I bring from AI</span>
+        <p>Prompt engineering, Custom GPT development and AI-assisted building, applied to real workflow bottlenecks in policy drafting, PII exposure and difficult employee conversations.</p>
+      </div>
+    </div>
+    <p class="thesis-bridge reveal">That combination of domain knowledge and applied AI literacy is what I bring to the table.</p>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <div class="eyebrow">Where I've worked</div>
+      <h2>Experience that moves people forward.</h2>
+      <p>Practical HR and ISO work, now extended with AI tools I've built.</p>
+    </div>
+
+    <div class="proof-role reveal">
+      <div class="proof-date">Dec 2024 – Present</div>
+      <div>
+        <h3>HR Executive &amp; ISO Coordinator</h3>
+        <div class="proof-org">QualiQuest Technologies Pvt. Ltd.</div>
+        <div class="proof-list">
+          <div class="proof-item"><span><b>Built Custom GPTs for HR tasks</b> such as policy drafting, document generation and job description writing, plus HireFlow, an assistant that structures difficult employee conversations with a 4-step de-escalation framework.</span></div>
+          <div class="proof-item"><span><b>Coordinated ISO 9001:2015 &amp; ISO 27001:2022 documentation</b> with external consultants through initial certification of both; now supporting preparation for the second-year surveillance audit.</span></div>
+          <div class="proof-item"><span><b>Ran full-cycle recruitment for 10+ hires</b> with the team, sourced through internal referrals and job postings, from screening through interviews, offers and onboarding.</span></div>
+          <div class="proof-item"><span><b>Owned the employee lifecycle:</b> records, appraisals, grievances, internal policy communication, and exits end to end, including 5 in 2026.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLAGSHIP PROJECTS (dark) -->
+<section class="section section-dark" id="projects">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <div class="eyebrow">Built from real HR problems</div>
+      <h2>AI projects with a people purpose.</h2>
+      <p>Tools built at the intersection of HR domain knowledge and applied AI, designed to solve problems I saw firsthand rather than to demo a technology.</p>
+    </div>
+
+    <!-- HIREPROOF -->
+    <div class="proj reveal">
+      <div class="proj-visual hp-demo" id="hpDemo">
+        <div class="hp-top"><span class="hp-brand">HireProof ✦</span><span class="hp-sample">Walkthrough · fictional sample</span></div>
+        <div class="hp-tabs" role="tablist" aria-label="Sample candidates">
+          <button class="on" data-c="a" role="tab" aria-selected="true">Candidate A</button>
+          <button data-c="b" role="tab" aria-selected="false">Candidate B</button>
+        </div>
+        <div class="hp-steps"><span data-s="1">1 · Redact</span><span data-s="2">2 · Check claims</span><span data-s="3">3 · Decide</span></div>
+        <div class="hp-doc" id="hpDoc" aria-live="polite"></div>
+        <div class="hp-finds" id="hpFinds" aria-live="polite"></div>
+        <div class="hp-verdict" id="hpVerdict" aria-live="polite"></div>
+        <button class="hp-run" id="hpRun">▶ Run walkthrough</button>
+      </div>
+      <div>
+        <div class="proj-badge-row"><span class="badge">Privacy-first</span><span class="badge">Domain-expert reading</span><span class="badge">Human in the loop</span></div>
+        <h3>HireProof</h3>
+        <div class="proj-sub">Screening that verifies the work, never the person.</div>
+        <div class="proj-label">Why I built it</div>
+        <p class="proj-desc">In a real hiring drive I worked on, only 2 of 35 applicants had genuine hands-on experience in the required domain, and keyword filters couldn't tell them apart. Checking them properly meant reading every resume closely, and pasting them into an AI chat would have exposed applicants' personal data.</p>
+        <div class="proj-label">The problem</div>
+        <p class="proj-desc">Resumes are written to beat keyword filters, so the right words no longer prove the right experience. And the fastest way to check them, pasting resumes into an AI chat, hands every candidate's name, phone number and personal details to an outside service.</p>
+        <div class="proj-label">How HireProof solves it</div>
+        <ul class="proj-points">
+          <li><span><b>Redacts before it reads.</b> Names, phone numbers, IDs and addresses are stripped on the recruiter's own device, and nothing is shared until they approve it.</span></li>
+          <li><span><b>Reads like a domain expert, not a keyword filter.</b> Separates skills shown in real project work from skills only listed, and flags claims a practitioner would find technically wrong or implausible.</span></li>
+          <li><span><b>Does the maths.</b> Claimed years vs actual job dates, gaps and future dates.</span></li>
+          <li><span><b>Spots manipulation.</b> Text copied between applicants, borrowed "About us" text and stuffed skills lists, plus hidden instructions aimed at AI screening tools.</span></li>
+          <li><span><b>Turns doubts into questions.</b> Every odd point comes with the exact question to ask, plus three drill-down questions per candidate and what a real answer sounds like.</span></li>
+          <li><span><b>Keeps people in charge.</b> HireProof recommends; the recruiter reviews the evidence and makes every decision. A red flag or a thin resume means "verify", never "reject".</span></li>
+          <li><span><b>Costs nothing to run.</b> Offline rules, your own AI key, or copy-to-chat, on desktop or phone.</span></li>
+        </ul>
+        <div class="built-with">Built with <b>AI pair-programming · Single-file web app · In-browser PDF &amp; Word reading · Rules engine + bring-your-own-key AI · Desktop &amp; mobile</b></div>
+        <div class="proj-outcome">AI does the checking, without ever seeing a name. A person makes every call.</div>
+        <div class="proj-links">
+          <a data-link="hireproof" class="proj-link">Try the live demo ↗</a>
+          <a data-link="hireproofVideo" class="proj-link ghost">Watch 60-sec demo ↗</a>
+        </div>
+        <p class="demo-note">The walkthrough here is a short sample. The <a data-link="hireproof">live demo</a> runs six fictional candidates through the full expert review, with no sign-up or key needed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<section>
+  <div class="wrap" style="padding:0;">
+    <div class="trust-bar">
+      <div class="trust-item">
+        <div class="k">Completed</div>
+        <div class="v">Generative AI Bootcamp · Outskill / Growth School / Skill India</div>
+      </div>
+      <div class="trust-item">
+        <div class="k">Educated</div>
+        <div class="v">MBA, HR Management · St. Ann's PG College, 2022–2024</div>
+      </div>
+      <div class="trust-item">
+        <div class="k">Grounded</div>
+        <div class="v">B.Sc. Computer Science · Nrupatunga Degree College, 2019–2022</div>
+      </div>
+      <div class="trust-item">
+        <div class="k">Coordinated</div>
+        <div class="v">ISO 9001:2015 QMS and ISO 27001:2022 ISMS documentation, through initial certification</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="contact-shell reveal">
+      <div class="contact-grid">
+        <div>
+          <div class="eyebrow">Intake</div>
+          <h2>Good work starts with a conversation.</h2>
+          <p class="lead">Hiring for HR-tech or People + AI roles, or curious how AI is changing HR operations? I'd genuinely like to hear from you.</p>
+          <div class="contact-secondary">
+            <a data-link="emailLink">a.ramasirisha@gmail.com ↗</a>
+            <a data-link="linkedin">LinkedIn profile ↗</a>
+            <a data-link="resume" download>Download résumé ↗</a>
+          </div>
+        </div>
+        <form class="form-card" id="contactForm" novalidate>
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your name" autocomplete="name" required>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+          <label for="msg">Message</label>
+          <textarea id="msg" name="message" placeholder="Tell me a little about why you're reaching out…" required></textarea>
+          <!-- spam trap: real people never see or fill this -->
+          <div class="hp-field" aria-hidden="true"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
+          <button class="form-submit" type="submit" id="formSubmit">Send message →</button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span>Rama Sirisha · People, Process, Progress</span>
+    <span>© 2026</span>
+  </div>
+</footer>
+
+<a href="#contact" class="float-cta btn-primary">Let's Connect →</a>
+
+<script>
+  /* =====================================================================
+     SITE SETTINGS — the only part you need to edit.
+     Paste your links between the quotes. Any link left empty ("") is
+     hidden automatically, so visitors never see a broken button.
+     ===================================================================== */
+  const SITE = {
+    email:          "a.ramasirisha@gmail.com",
+    linkedin:       "https://www.linkedin.com/in/rama-sirisha-adharapurapu0902j",
+    resume:         "resume.pdf",   // the PDF must sit in the same folder as this file, named exactly resume.pdf
+    hireproof:      "https://ramasirisha.github.io/hireproof-demo/",   // live HireProof demo
+    hireproofVideo: "",   // optional: Loom / YouTube / Drive link to a short screen recording
+    formspree:      ""    // optional: your Formspree form ID, e.g. "xkgwabcd". Empty = form opens the visitor's email app instead
+  };
+  /* ===================================================================== */
+
+  SITE.emailLink = "mailto:" + SITE.email;
+  document.querySelectorAll('[data-link]').forEach(a=>{
+    const url = SITE[a.dataset.link];
+    if(url){
+      a.href = url;
+      if(/^https?:/i.test(url) || /\.pdf$/i.test(url)){ a.target = "_blank"; a.rel = "noopener"; a.removeAttribute('download'); }
+    } else {
+      a.hidden = true;
+    }
+  });
+  // hide a project's link row entirely if none of its links are set
+  document.querySelectorAll('.proj-links').forEach(row=>{
+    if(![...row.querySelectorAll('a')].some(a=>!a.hidden)) row.hidden = true;
+  });
+  // hide the demo note if the live demo link isn't set
+  document.querySelectorAll('.demo-note').forEach(p=>{ if(!SITE.hireproof) p.hidden = true; });
+
+  /* ---------- Contact form ---------- */
+  const form = document.getElementById('contactForm');
+  const statusEl = document.getElementById('formStatus');
+  const submitBtn = document.getElementById('formSubmit');
+  function setStatus(msg, cls){ statusEl.textContent = msg; statusEl.className = 'form-status ' + (cls||''); }
+
+  form.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    const d = new FormData(form);
+    const name = (d.get('name')||'').trim();
+    const email = (d.get('email')||'').trim();
+    const message = (d.get('message')||'').trim();
+    if(d.get('_gotcha')) return;
+    if(!name || !email || !message){ setStatus('Please fill in your name, email and message.', 'err'); return; }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ setStatus('That email address doesn\'t look right. Could you check it?', 'err'); return; }
+
+    if(!SITE.formspree){
+      const subject = 'Portfolio enquiry from ' + name;
+      const body = message + '\n\nFrom ' + name + ' (' + email + ')';
+      window.location.href = 'mailto:' + SITE.email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      setStatus('Your email app should open with this message ready to send. If it doesn\'t, write to ' + SITE.email + '.', 'ok');
+      return;
+    }
+
+    submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; setStatus('');
+    try{
+      const r = await fetch('https://formspree.io/f/' + SITE.formspree, {
+        method:'POST', body:d, headers:{ 'Accept':'application/json' }
+      });
+      if(!r.ok) throw new Error('bad response');
+      form.reset();
+      setStatus('Thanks, ' + name.split(' ')[0] + '. Your message is on its way, and I\'ll reply soon.', 'ok');
+    }catch(err){
+      setStatus('Something went wrong sending that. Please email me directly at ' + SITE.email + '.', 'err');
+    }finally{
+      submitBtn.disabled = false; submitBtn.textContent = 'Send message →';
+    }
+  });
+
+  /* ---------- Reveal on scroll ---------- */
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
+  },{threshold:0.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  /* ---------- Floating "Let's Connect" button: hide at the top and near the contact form ---------- */
+  const floatBtn=document.querySelector('.float-cta'),contactSec=document.getElementById('contact');
+  let nearContact=false;
+  function floatUpdate(){floatBtn.classList.toggle('away',nearContact||window.scrollY<300);}
+  new IntersectionObserver(es=>{es.forEach(e=>{nearContact=e.isIntersecting;floatUpdate();});},{threshold:0.05}).observe(contactSec);
+  window.addEventListener('scroll',floatUpdate,{passive:true});
+  floatUpdate();
+
+  /* ---------- HireProof walkthrough (fictional sample data) ---------- */
+  const HP={
+    a:{
+      lines:[
+        [{p:'Suresh Rao',tag:'[NAME]'}],
+        [{p:'suresh.rao@example.com',tag:'[EMAIL]'},' · ',{p:'+91 98450 12345',tag:'[PHONE]'}],
+        ['Software Engineer II · Jan 2024 – Present'],
+        ['Made payment callbacks idempotent after duplicate Kafka deliveries'],
+        ['Traced a production memory leak to an unbounded cache using heap dumps']
+      ],
+      finds:[
+        {ok:true,t:'All 5 must-haves shown in real project work: Java, Spring Boot, Microservices, REST, SQL'},
+        {ok:true,t:'Practitioner detail: idempotency keys, consumer lag, heap dumps'},
+        {ok:true,t:'Claims 4.5 years · job dates confirm it'}
+      ],
+      verdict:{cls:'good',h:'✓ Genuine: shortlist',q:'Ask: "Where did you store the idempotency key, and what happened on a retry mid-transaction?"'}
+    },
+    b:{
+      lines:[
+        [{p:'Ramya P',tag:'[NAME]'},' · Senior Java Full Stack Developer · 7+ Years'],
+        [{p:'ramya.p91@example.com',tag:'[EMAIL]'},' · ',{p:'9123456780',tag:'[PHONE]'}],
+        ['Skills: Java, Spring Boot, React, Angular, Node.js, LLM, GenAI, RAG…'],
+        ['Job 1: Developed and maintained web applications using the latest technologies.'],
+        ['Job 2: Developed and maintained web applications using the latest technologies.']
+      ],
+      finds:[
+        {ok:false,t:'Claims 7+ years · job dates add up to 4.3'},
+        {ok:false,t:'Same bullets copied across both jobs'},
+        {ok:false,t:'Spring Boot is claimed only in the skills list; no project shows it'}
+      ],
+      verdict:{cls:'bad',h:'⚑ 3 points to verify',q:'Ask: "Pick one Spring Boot service you built. What did it do, and how did it talk to the database?"'}
+    }
+  };
+  const hpEsc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  let hpCur='a',hpTimers=[],hpStarted=false;
+  const hpLater=(ms,fn)=>hpTimers.push(setTimeout(fn,ms));
+  function hpStep(n){document.querySelectorAll('.hp-steps span').forEach(s=>s.classList.toggle('on',+s.dataset.s<=n));}
+  function hpReset(k){
+    hpTimers.forEach(clearTimeout);hpTimers=[];
+    document.getElementById('hpDoc').innerHTML='<span class="xl">Resume excerpt</span>'+HP[k].lines.map(l=>'<span class="ln">'+l.map(seg=>typeof seg==='string'?hpEsc(seg):'<span class="pii" data-tag="'+seg.tag+'">'+hpEsc(seg.p)+'</span>').join('')+'</span>').join('');
+    document.getElementById('hpFinds').innerHTML='';
+    document.getElementById('hpVerdict').innerHTML='';
+    hpStep(0);
+  }
+  function hpRun(){
+    const k=hpCur,d=HP[k],btn=document.getElementById('hpRun');
+    const slow=window.matchMedia('(prefers-reduced-motion: reduce)').matches?0:1;
+    hpReset(k);btn.disabled=true;
+    let t=300*slow;
+    hpLater(t,()=>hpStep(1));
+    document.querySelectorAll('#hpDoc .pii').forEach((s,i)=>{
+      hpLater(t+i*320*slow,()=>s.classList.add('sweep'));
+      hpLater(t+i*320*slow+280*slow,()=>{s.classList.remove('sweep');s.classList.add('redacted');s.textContent=s.dataset.tag;});
+    });
+    t+=document.querySelectorAll('#hpDoc .pii').length*320*slow+600*slow;
+    hpLater(t,()=>hpStep(2));
+    d.finds.forEach((f,i)=>hpLater(t+300*slow+i*700*slow,()=>{
+      const el=document.createElement('div');el.className='hp-f '+(f.ok?'ok':'bad');
+      el.innerHTML='<i>'+(f.ok?'✓':'⚑')+'</i><span>'+hpEsc(f.t)+'</span>';
+      document.getElementById('hpFinds').appendChild(el);
+    }));
+    t+=300*slow+d.finds.length*700*slow+400*slow;
+    hpLater(t,()=>{
+      hpStep(3);
+      document.getElementById('hpVerdict').innerHTML='<div class="hp-v '+d.verdict.cls+'"><b>'+hpEsc(d.verdict.h)+'</b><small>'+hpEsc(d.verdict.q)+'</small></div>';
+      btn.disabled=false;btn.textContent='↻ Run again';
+    });
+  }
+  document.querySelectorAll('.hp-tabs button').forEach(b=>b.addEventListener('click',()=>{
+    hpCur=b.dataset.c;
+    document.querySelectorAll('.hp-tabs button').forEach(x=>{const on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-selected',on);});
+    hpStarted=true;hpRun();
+  }));
+  document.getElementById('hpRun').addEventListener('click',()=>{hpStarted=true;hpRun();});
+  hpReset('a');
+  new IntersectionObserver((entries,obs)=>{
+    entries.forEach(e=>{if(e.isIntersecting&&!hpStarted){hpStarted=true;setTimeout(hpRun,500);obs.disconnect();}});
+  },{threshold:0.5}).observe(document.getElementById('hpDemo'));
+</script>
+</body>
+</html>
